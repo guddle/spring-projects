@@ -8,13 +8,16 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.junit.Test;
+
 import static org.junit.Assert.assertNotNull;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.dcits.demo.activiti.dao.JPATest;
 import com.dcits.modules.test.spring.SpringTransactionalTestCase;
 @ContextConfiguration(locations = { "/applicationContext-test.xml" })
 public class DBTest extends SpringTransactionalTestCase {
@@ -24,12 +27,14 @@ public class DBTest extends SpringTransactionalTestCase {
 	private EntityManager entityManager;
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	@Autowired
+	private JPATest jpaTest;
 	
 	
 	@Test
 	public void testSqlQuery(){
 		
-		String sql = "select count(1) rows_ from ACT_GE_BYTEARRAY";
+		String sql = "select 1";
 		/*
 		 * PersisternceContext 测试
 		 */
@@ -38,8 +43,16 @@ public class DBTest extends SpringTransactionalTestCase {
 		/*
 		 * JDBC测试
 		 */
-		 List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
+		int i = jdbcTemplate.queryForInt(sql);
 		
-		log.debug("@JdbcTemplate查询结果：第一个部署的流程名称是："+list.get(0).get("rows_"));
+		log.debug("@JdbcTemplate查询结果：第一个部署的流程名称是："+i);
+	}
+	
+	@Test
+	public void testJPA(){
+		String value = jpaTest.findByName("schema.version").getValue();
+		log.debug("@JPATest的测试结果:"+ value);
+		assertNotNull(jpaTest);
+		assert(value.equals("5.14"));
 	}
 }

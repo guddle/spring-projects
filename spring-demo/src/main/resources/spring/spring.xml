@@ -12,8 +12,8 @@
 	http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
 
 	<!-- Spring 获取配置文件中定义的bean -->
-	<aop:aspectj-autoproxy proxy-target-class="true" /><!-- 
-		开启切面编程功能 -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<!--开启切面编程功能 -->
 	<context:annotation-config />
 
 	<!-- 引入属性文件 -->
