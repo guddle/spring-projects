@@ -17,7 +17,7 @@
           			  classpath*:/application.local.properties" />
           			  
 	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
-	<context:component-scan base-package="com.guddle.dao">
+	<context:component-scan base-package="com.guddle">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	
@@ -26,7 +26,7 @@
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />
-		<property name="packagesToScan" value="com.guddle.pojo" />
+		<property name="packagesToScan" value="com.guddle.jpa.data.domain" />
 		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
@@ -47,7 +47,7 @@
 	</bean>
 	
 	<!-- Spring Data Jpa配置 -->
-	<jpa:repositories base-package="com.guddle.dao"
+	<jpa:repositories base-package="com.guddle.jpa.data.repository"
 		transaction-manager-ref="transactionManager"
 		entity-manager-factory-ref="entityManagerFactory" />
 	<!-- 使用annotation定义事务 -->

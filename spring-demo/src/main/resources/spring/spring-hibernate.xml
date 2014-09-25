@@ -62,7 +62,7 @@
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />
-		<property name="packagesToScan" value="com.guddle.pojo" />
+		<property name="packagesToScan" value="com.guddle.jpa.data.domain" />
 		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
@@ -83,7 +83,7 @@
 	</bean>
 
 	<!-- Spring Data Jpa配置 -->
-	<jpa:repositories base-package="com.guddle.dao"
+	<jpa:repositories base-package="com.guddle.jpa.data.repository"
 		transaction-manager-ref="transactionManager"
 		entity-manager-factory-ref="entityManagerFactory" />
 	<!-- 使用annotation定义事务 -->
