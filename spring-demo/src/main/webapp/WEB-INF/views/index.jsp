@@ -7,6 +7,6 @@
 <title>系统主页</title>
 </head>
 <body>
-
+${username} 欢迎进入系统！
 </body>
 </html>
