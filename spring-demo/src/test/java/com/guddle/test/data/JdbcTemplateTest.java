@@ -26,7 +26,7 @@ public class JdbcTemplateTest extends SpringTransactionalTestCase {
 	@Test
 	public void testSqlQuery(){
 		
-		String sql = "select 1";
+		String sql = "select *from T_test where name='hello'";
 		/*
 		 * PersisternceContext 测试
 		 */
@@ -35,7 +35,7 @@ public class JdbcTemplateTest extends SpringTransactionalTestCase {
 		/*
 		 * JDBC测试
 		 */
-		int i = jdbcTemplate.queryForObject(sql, Integer.class);
+		String i = jdbcTemplate.queryForObject(sql, String.class);
 		
 		log.debug("@JdbcTemplate查询结果：第一个部署的流程名称是："+i);
 	}

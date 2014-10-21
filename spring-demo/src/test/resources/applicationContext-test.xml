@@ -98,4 +98,8 @@
 		<!-- <property name="filters" value="stat" /> -->
 		<property name="filters" value="mergeStat" />
 	</bean>
+	<!-- 测试数据初始化 -->
+	<jdbc:embedded-database id="dataSource" type="H2">
+		<jdbc:script location="classpath:data/init-data.sql"/>
+	</jdbc:embedded-database>
 </beans>
