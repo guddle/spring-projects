@@ -12,7 +12,7 @@
 
 	<description>Spring 的配置</description>
 	
-	<context:property-placeholder ignore-unresolvable="true"
+	<context:property-placeholder ignore-unresolvable="true" 
 			location="classpath*:/application.properties,
           			  classpath*:/application.local.properties" />
           			  

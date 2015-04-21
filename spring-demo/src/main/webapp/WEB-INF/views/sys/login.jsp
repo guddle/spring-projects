@@ -15,7 +15,7 @@
 		<input id="password" type="password" name="password"/><br>
 		<input type="submit" value="登录"/>
 		<input type="checkbox" id="remember_me" name="remember_me" value="true"/>
-		<label for="remember_me" >记住尼玛？</label>
+		<label for="remember_me" >记住密码？</label>
 	</form>
 	<div><spring:url value="/sys/login" var="home"/>
 	<li><a href="${home }">系统首页</a></li></div>

@@ -45,6 +45,7 @@ public class WorkFlowService {
 	 */
 	public void hello() {
 //		 proccessDeploys("com/dcits/demo/activiti/hello.bpmn20.xml");
+//		repositoryService.createProcessDefinitionQuery().
 		runtimeService.startProcessInstanceByKey("helloProcess");
 	}
 

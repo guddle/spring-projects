@@ -89,6 +89,11 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
+	<!-- 测试数据初始化 -->
+	<jdbc:embedded-database id="dataSource" type="H2">
+		<jdbc:script location="classpath:data/init-data.sql"/>
+	</jdbc:embedded-database>
+	
 	<!-- 配置druid监控spring jdbc -->
 	<bean id="druid-stat-interceptor"
 		class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor">

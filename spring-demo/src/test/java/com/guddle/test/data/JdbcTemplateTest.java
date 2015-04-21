@@ -26,7 +26,7 @@ public class JdbcTemplateTest extends SpringTransactionalTestCase {
 	@Test
 	public void testSqlQuery(){
 		
-		String sql = "select *from T_test where name='hello'";
+		String sql = "select username from users where username='admin'";
 		/*
 		 * PersisternceContext 测试
 		 */
